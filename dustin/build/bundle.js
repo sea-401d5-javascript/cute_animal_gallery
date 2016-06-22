@@ -31542,7 +31542,7 @@
 
 	module.exports = function(app) {
 	  __webpack_require__(4)(app);
-	  __webpack_require__(7)(app);
+	  __webpack_require__(6)(app);
 	};
 
 
@@ -31552,7 +31552,6 @@
 
 	module.exports = function(app) {
 	  __webpack_require__(5)(app);
-	  __webpack_require__(6)(app);
 	};
 
 
@@ -31560,48 +31559,57 @@
 /* 5 */
 /***/ function(module, exports) {
 
-	module.exports = function(app) {
-	  app.controller('ImageController', ['$scope', function() {
-	    this.url= 'http://pearlofcivilization.net/images/218.jpg';
-	    this.title = 'Cute Bunny';
-	    this.desc = 'Bunny smok\'n a cig';
+	module.exports = function (app) {
+	  app.controller('AlbumController', ['$scope', function () {
+
+	    this.capybara = {
+	      title: 'Capybara',
+	      description: 'This oversized rodent is known as the royal rat and is delicacy in some countries',
+	      imgs: ['http://www.zooborns.com/.a/6a010535647bf3970b01a3fd3d706c970b-800wi', 'http://www.dallasnews.com/incoming/20130712-garl001.jpg.ece/BINARY/w595x467/garl001.JPG', 'http://cdnph.upi.com/sv/b/i/UPI-8881457961830/2016/1/14579619634913/Cheeky-squirrel-monkey-hitches-ride-on-capybaras-back.jpg']
+	    };
+
+	    this.nutria = {
+	      title: 'Orange-Tooted Nutria',
+	      description: 'This pesky rodent has destructive feeding and burrowing behaviors making this invasive species a pest throughout most of its range.',
+	      imgs: ['https://animalreview.files.wordpress.com/2010/05/istock_000007010601small.jpg?w=500&h=334','http://wdfw.wa.gov/living/species/graphics/nutria2.jpg', 'https://animalreview.files.wordpress.com/2010/05/istock_000012445843small.jpg']
+	    };
+
+	    this.waterbear = {
+	      title: 'Water Bear',
+	      description: 'The microscopic animal can live in the vaccumm of space and can go without food or water for more than 30 years ',
+	      imgs: ['http://i.dailymail.co.uk/i/pix/2015/09/04/20/2BFAE49700000578-0-image-a-54_1441396164272.jpg', 'http://www.wpclipart.com/animals/T/tardigrade_aka_water-bear.png','http://i.dailymail.co.uk/i/pix/2013/02/18/article-2280286-17A3F2D5000005DC-384_634x537.jpg']
+	    };
+
 	  }]);
 	};
 
 
 /***/ },
 /* 6 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = function (app) {
-	  app.controller('AlbumController', ['$scope', function () {
-	    this.albums = [{
-	      title: 'Capybara',
-	      description: 'This oversized rodent is known as the royal rat and is delicacy in some countries',
-	      imgs: ['http://www.zooborns.com/.a/6a010535647bf3970b01a3fd3d706c970b-800wi', 'http://www.dallasnews.com/incoming/20130712-garl001.jpg.ece/BINARY/w595x467/garl001.JPG', 'http://cdnph.upi.com/sv/b/i/UPI-8881457961830/2016/1/14579619634913/Cheeky-squirrel-monkey-hitches-ride-on-capybaras-back.jpg']
-	    }, {
-	      title: 'Orange-Tooted Nutria',
-	      description: 'This pesky rodent has destructive feeding and burrowing behaviors making this invasive species a pest throughout most of its range.',
-	      imgs: ['https://animalreview.files.wordpress.com/2010/05/istock_000007010601small.jpg?w=500&h=334','http://wdfw.wa.gov/living/species/graphics/nutria2.jpg', 'https://animalreview.files.wordpress.com/2010/05/istock_000012445843small.jpg']
-	    }, {
-	      title: 'Water Bear',
-	      description: 'The microscopic animal can live in the vaccumm of space and can go without food or water for more than 30 years ',
-	      imgs: ['http://i.dailymail.co.uk/i/pix/2015/09/04/20/2BFAE49700000578-0-image-a-54_1441396164272.jpg']
-	    }];
-	  }]);
+	module.exports = function(app) {
+	  __webpack_require__(7)(app);
+	  __webpack_require__(8)(app);
+	  __webpack_require__(9)(app);
+	  __webpack_require__(10)(app);
 	};
 
 
 /***/ },
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = function(app) {
-	  __webpack_require__(8)(app);
-	  __webpack_require__(9)(app);
-	  __webpack_require__(10)(app);
-	  __webpack_require__(11)(app);
-	  __webpack_require__(12)(app);
+	module.exports = function (app) {
+	  app.directive('textDirective', function () {
+	    return {
+	      //template: '<h1>First Directive</h1>'
+	      templateUrl: './templates/BunnyApp/text.html',
+	      scope: {
+	        img: '='
+	      }
+	    };
+	  });
 	};
 
 
@@ -31609,15 +31617,13 @@
 /* 8 */
 /***/ function(module, exports) {
 
-	module.exports = function(app) {
-	  app.directive('firstDirective', function() {
+	module.exports = function (app) {
+	  app.directive('thumbDirective', function () {
 	    return {
 	      //template: '<h1>First Directive</h1>'
-	      templateUrl: './templates/BunnyApp/text.html',
-	      scope:{
-	        url: '@',
-	        title: '@',
-	        desc: '@'
+	      templateUrl: './templates/BunnyApp/thumb.html',
+	      scope: {
+	        img: '='
 	      }
 	    };
 	  });
@@ -31628,16 +31634,15 @@
 /* 9 */
 /***/ function(module, exports) {
 
-	module.exports = function(app) {
-	  app.directive('secondDirective', function() {
+	module.exports = function (app) {
+	  app.directive('largeDirective', function () {
 	    return {
 	      //template: '<h1>First Directive</h1>'
-	      templateUrl: './templates/BunnyApp/thumb.html',
-	      scope:{
-	        url: '@'
+	      templateUrl: './templates/BunnyApp/large.html',
+	      scope: {
+	        img: '='
 	      }
 	    };
-
 	  });
 	};
 
@@ -31646,63 +31651,21 @@
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = function(app) {
-	  app.directive('thirdDirective', function() {
-	    return {
-	      //template: '<h1>First Directive</h1>'
-	      templateUrl: './templates/BunnyApp/large.html',
-	      scope:{
-	        url: '@',
-	        title: '@',
-	        desc: '@'
-	      }
-	    };
-
-	  });
-	};
-
-
-/***/ },
-/* 11 */
-/***/ function(module, exports) {
-
 	module.exports = function (app) {
-	  app.directive('albumList', function () {
+	  app.directive('album', function () {
 	    return {
 	      //template: '<h1>First Directive</h1>',
-	      templateUrl: './templates/BunnyApp/albumlist.html',
+	      templateUrl: './templates/BunnyApp/album.html',
 	      scope: {
-	        albums: '='
+	        photoalbum: '=',
+	        mode: '='
 	      },
 	      controller: function ($scope) {
-	        $scope.showAlbum = function (album) {
-	          console.log("hit");
-	          if (!album) {
-	            $scope.mode = 'list';
-	            return;
-	          }
-
-	          $scope.currentAlbum = album;
-	          $scope.mode = 'single';
-
+	        $scope.showImage = function (img) {
+	          $scope.currentImg = img
+	          console.log($scope.currentImg);
 	        };
 	      }
-
-	    };
-	  });
-	};
-
-
-/***/ },
-/* 12 */
-/***/ function(module, exports) {
-
-	module.exports = function(app) {
-	  app.directive('albumThumbView', function() {
-	    return {
-	      //template: '<h1>First Directive</h1>'
-	      templateUrl: './templates/BunnyApp/albumThumbView.html',
-	      scope: {albums: '='}
 	    };
 	  });
 	};

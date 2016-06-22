@@ -1,7 +1,6 @@
 module.exports = function(app) {
-  require('./FirstDirective')(app);
-  require('./SecondDirective')(app);
-  require('./ThirdDirective')(app);
-  require('./AlbumList')(app);
-  require('./Albumthumbview')(app);
+  require('./textDirective')(app);
+  require('./thumbDirective')(app);
+  require('./largeDirective')(app);
+  require('./Album')(app);
 };
