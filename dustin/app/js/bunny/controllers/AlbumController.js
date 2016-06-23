@@ -1,6 +1,6 @@
 module.exports = function (app) {
   app.controller('AlbumController', ['$scope', function () {
-
+    this.currentImg = '';
     this.capybara = {
       title: 'Capybara',
       description: 'This oversized rodent is known as the royal rat and is delicacy in some countries',

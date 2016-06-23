@@ -31561,7 +31561,7 @@
 
 	module.exports = function (app) {
 	  app.controller('AlbumController', ['$scope', function () {
-
+	    this.currentImg = "";
 	    this.capybara = {
 	      title: 'Capybara',
 	      description: 'This oversized rodent is known as the royal rat and is delicacy in some countries',
@@ -31640,7 +31640,8 @@
 	      //template: '<h1>First Directive</h1>'
 	      templateUrl: './templates/BunnyApp/large.html',
 	      scope: {
-	        img: '='
+	        img: '=',
+	        currentImg: '='
 	      }
 	    };
 	  });
@@ -31661,11 +31662,33 @@
 	        mode: '='
 	      },
 	      controller: function ($scope) {
-	        $scope.showImage = function (img) {
-	          $scope.currentImg = img
-	          console.log($scope.currentImg);
+	        // $scope.showImage = function (img) {
+	        //   $scope.currentImg = img;
+	        //   console.log(controller);
+	        // };
+	        $scope.closeLarge = function () {
+	          //controller.currentImg == false;
+	          console.log("hit");
 	        };
-	      }
+
+	      },
+	      link: function(scope, elem, attr, controller) {
+	        // scope.closeLarge = function () {
+	        //   controller.currentImg == false;
+	        //   console.log("hit");
+	        // };
+
+	        scope.showImage = function(img) {
+	          controller.currentImg = img;
+	        };
+	        scope.$watch(function(){
+	          return controller.currentImg;
+	        }, function(){
+	          scope.currentImg = controller.currentImg;
+	        })
+	      },
+
+	      require: '^ngController'
 	    };
 	  });
 	};

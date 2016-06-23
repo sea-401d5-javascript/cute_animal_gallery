@@ -11,25 +11,14 @@
 
 <body data-ng-app="BunnyApp">
 
-    <!-- <main ng-controller="ImageController as imagectrl" ng-cloak> -->
-
-      <!-- <first-directive url="{{imagectrl.url}}" title="{{imagectrl.title}}" desc="{{imagectrl.desc}}"></first-directive>
-      <hr />
-      <second-directive url="{{imagectrl.url}}"></second-directive>
-      <hr />
-      <third-directive url="{{imagectrl.url}}" title="{{imagectrl.title}}" desc="{{imagectrl.desc}}"></third-directive> -->
-
-
       <div ng-controller="AlbumController as albumctrl">
         <album mode="'thumbnail'" photoalbum="albumctrl.capybara"></album>
-        <hr />
+      
         <album mode="'thumbnail'" photoalbum="albumctrl.nutria"></album>
-        <hr />
+
         <album mode="'thumbnail'" photoalbum="albumctrl.waterbear"></album>
-        <hr />
-    </div>
 
-
+      </div>
 
     <!-- </main> -->
     <script src="bundle.js"></script>
